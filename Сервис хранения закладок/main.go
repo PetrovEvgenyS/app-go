@@ -21,10 +21,10 @@ Menu: // Бесконечный цикл для отображения меню 
 			printBookmarks(bookmarks)
 		case 2:
 			// Добавление новой закладки
-			bookmarks = addBookmark(bookmarks)
+			addBookmark(bookmarks)
 		case 3:
 			// Удаление закладки
-			bookmarks = deleteBookmark(bookmarks)
+			deleteBookmark(bookmarks)
 		case 4:
 			// Выход из приложения
 			fmt.Println("Выход из приложения.")
@@ -60,7 +60,7 @@ func printBookmarks(bookmarks bookmarkMap) {
 }
 
 // addBookmark добавляет новую закладку в список
-func addBookmark(bookmarks bookmarkMap) bookmarkMap {
+func addBookmark(bookmarks bookmarkMap) {
 	var newBookmarkKey string
 	var newBookmarkValue string
 	fmt.Print("Введите название закладки: ")
@@ -69,14 +69,12 @@ func addBookmark(bookmarks bookmarkMap) bookmarkMap {
 	fmt.Scan(&newBookmarkValue)
 	bookmarks[newBookmarkKey] = newBookmarkValue
 	fmt.Println("Закладка добавлена.")
-	return bookmarks
 }
 
 // deleteBookmark удаляет закладку из списка по названию
-func deleteBookmark(bookmarks bookmarkMap) bookmarkMap {
+func deleteBookmark(bookmarks bookmarkMap) {
 	var bookmarkKeyToDelete string
 	fmt.Print("Введите название закладки для удаления: ")
 	fmt.Scan(&bookmarkKeyToDelete)
 	delete(bookmarks, bookmarkKeyToDelete)
-	return bookmarks
 }
